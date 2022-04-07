@@ -25,7 +25,7 @@ extension LRUCache {
     }
     
     public func put(_ value: Value, forKey key: String) {
-        guard storage.contains(where: { $0.key == key }) else {
+        guard !storage.contains(where: { $0.key == key }) else {
             remove(key: key)
             appendCache(key: key, value: value)
             return
